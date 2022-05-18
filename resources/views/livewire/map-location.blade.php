@@ -86,13 +86,13 @@
 
     <script>
         document.addEventListener('livewire:load', () => {
-            const defaultLocation = [106.82739354958642, -6.177695715441999]
+            const defaultLocation = [106.89168840013895, -6.180490850021073]
 
             mapboxgl.accessToken = '{{env('MAPBOX_KEY')}}';
             var map = new mapboxgl.Map({
                 container: 'map',
                 center: defaultLocation,
-                zoom: 11.15,
+                zoom: 13,
 
                 // jenis style : streets-v11, light-v10, outdoors-v11, satellite-v9, dark-v10
                 style: 'mapbox://styles/mapbox/streets-v11'
