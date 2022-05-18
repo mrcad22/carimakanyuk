@@ -131,6 +131,7 @@ class MapLocation extends Component
         $this->imageUrl = "";
         $this->clearForm();
         $this->loadLocations();
+        $this->isEdit = false;
         $this->dispatchBrowserEvent('updateLocation', $this->geoJson);
     }
 
