@@ -83,6 +83,8 @@
 @push('scripts')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
     <script>
         document.addEventListener('livewire:load', () => {
@@ -97,6 +99,14 @@
                 // jenis style : streets-v11, light-v10, outdoors-v11, satellite-v9, dark-v10
                 style: 'mapbox://styles/mapbox/streets-v11'
             });;
+
+            // Add the control to the map.
+            map.addControl(
+                new MapboxGeocoder({
+                    accessToken: mapboxgl.accessToken,
+                    mapboxgl: mapboxgl
+                })
+            );
 
             const loadLocations = (geoJson) => {
                 geoJson.features.forEach((location) => {
